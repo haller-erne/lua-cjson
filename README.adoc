@@ -1,4 +1,37 @@
 = Lua CJSON =
+
+This is a forked version of `lua-cjson` (from https://github.com/mpx/lua-cjson[mpx/lua-cjson]) for use with https://www.embarcadero.com/de/products/cbuilder[Embarcadero C++Builder 11.3].
+
+It provides proper project files and a few changes to work around a few gotchas using Embarcaderos "standard" C-Compiler implementation.
+
+Everything in this repo is published under the https://mit-license.org/[MIT-License] (as the original authors code was, too), so feel free to use and improve it (attributions and improvements welcome!). 
+
+== Building  ==
+
+To build the cjson DLL, an already installed LUA source is needed. To let the build know the LUA source location, the following IDE environment variables must be set (Tools -> Options -> Environment variables):
+
+- `LUALIB`: Path to the LUA import library (lua5.1.lib)
+- `LUAINC`: Path to the LUA header files
+
+
+== Distribution and usage ==
+
+To create the .\dist folder, run the `.\dist.cmd` batch file.
+
+To use the library, add the path to the dist folder to the LUA cpath and lua path package variables.
+
+In LUA code:
+
+```
+
+    package.path = package.path .. ';dist'
+    package.cpath = cpackage.path .. ';dist'
+
+```
+
+
+= Orginal readme =
+
 Mark Pulford <mark@kyne.com.au>
 
 The Lua CJSON module provides JSON support for Lua.
