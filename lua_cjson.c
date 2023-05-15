@@ -54,10 +54,14 @@
 #define CJSON_VERSION   "2.1devel"
 #endif
 
-#ifdef _MSC_VER
+#if defined(_MSC_VER) || defined(__BORLANDC__)
 #define CJSON_EXPORT    __declspec(dllexport)
 #else
 #define CJSON_EXPORT    extern
+#endif
+
+#if defined(__BORLANDC__)
+#define strncasecmp(x,y,z) _strnicmp(x,y,z)
 #endif
 
 /* Workaround for Solaris platforms missing isinf() */

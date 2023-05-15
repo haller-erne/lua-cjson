@@ -1,0 +1,9 @@
+; ACHTUNG: diese Datei darf während dem Linken *NICHT* in dem IDE-Editor
+;          geöffnet sein, sonst kommt die Fehlermeldung "invalid ItemSpec"
+;          und der Linker kann nicht linken!
+
+LIBRARY cjson
+EXPORTS
+
+luaopen_cjson = _luaopen_cjson
+luaopen_cjson_safe = _luaopen_cjson_safe
